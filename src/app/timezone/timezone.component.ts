@@ -10,13 +10,23 @@ import { TimeService } from '../services/time.service';
 export class TimezoneComponent implements OnInit {
 
   city: IZone;
+  cityName: string;
+  countryName: string;
 
-  constructor(private timeService: TimeService) {
-    const city = this.timeService.getCity();
-    this.city = city;
-  }
+  constructor(private timeService: TimeService) {}
 
   ngOnInit() {
+    this.loadCity();
   }
 
+  public loadCity() {
+    const city = this.timeService.getCity();
+    this.cityName = this.formatCityName(city.zoneName);
+    this.countryName = city.countryName;
+  }
+
+  private formatCityName(zoneName: string): string {
+    const parts = zoneName.split('/');
+    return parts[parts.length - 1];
+  }
 }

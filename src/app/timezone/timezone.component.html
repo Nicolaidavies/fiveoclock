@@ -1,4 +1,17 @@
-<p>
-  {{city.countryName}}
-  {{city.zoneName}}
-</p>
+<div class="container">
+  <h4 class="header">It's five o'clock in</h4>
+
+  <h1 class="city-name">
+    {{cityName}}
+  </h1>
+
+  <h2 class="country-name">
+    {{countryName}}
+  </h2>
+
+  <div class="button-container">
+    <button mat-raised-button (click)="loadCity()">
+      Where else?
+    </button>
+  </div>
+</div>
