@@ -1,4 +1,5 @@
 .container {
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -6,19 +7,16 @@
 
 
 .header {
-  flex: 1;
+  margin: 32px 0;
 }
 
 .city-name {
-  flex: 2;
+  margin-bottom: 16px;
 }
 
 .country-name {
-  flex: 1;
 }
 
 .button-container {
-  flex: 1;
-  margin-top: 2em;
   text-align: center;
 }
