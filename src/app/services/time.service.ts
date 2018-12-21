@@ -17,6 +17,7 @@ export class TimeService {
   }
 
   private getCitites(): IZone[] {
+    console.log('zones', zones);
     return zones.filter(this.isFive);
   }
 

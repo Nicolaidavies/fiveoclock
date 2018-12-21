@@ -1,17 +1,27 @@
 <div class="container">
-  <h4 class="header mat-headline">It's five o'clock in</h4>
+  
+  <mgl-map (load)="map = $event" [style]="'mapbox://styles/nicolaidavies/cjpy1fpcr0hqz2robmqhsknxy'" [zoom]="[9]" [center]="[-74.50, 40]">
+    <mgl-geojson-source id="symbols-source">
+      <mgl-feature *ngIf="featureCollection" [geometry]="featureCollection"></mgl-feature>
+    </mgl-geojson-source>
+  </mgl-map>
 
-  <h1 class="city-name mat-display-2">
-    {{cityName}}
-  </h1>
+  <div class="text-container">
+    <h4 class="header mat-headline">It's five o'clock in</h4>
 
-  <h2 class="country-name mat-display-1">
-    {{countryName}}
-  </h2>
+    <h1 class="city-name mat-display-2">
+      {{cityName}}
+    </h1>
+
+    <h2 class="country-name mat-display-1">
+      {{countryName}}
+    </h2>
+  </div>
 
   <div class="button-container">
     <button mat-raised-button (click)="loadCity()">
       Where else?
     </button>
   </div>
+  
 </div>
