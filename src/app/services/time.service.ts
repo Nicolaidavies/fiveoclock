@@ -11,13 +11,11 @@ export class TimeService {
 
   public getCity() {
     const cities = this.getCitites();
-    console.log('cities', cities);
     const index = this.getRandomInt(0, cities.length - 1);
     return cities[index];
   }
 
   private getCitites(): IZone[] {
-    console.log('zones', zones);
     return zones.filter(this.isFive);
   }
 

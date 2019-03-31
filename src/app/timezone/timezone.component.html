@@ -1,6 +1,6 @@
 <div class="container">
   
-  <mgl-map (load)="map = $event" [style]="'mapbox://styles/nicolaidavies/cjpy1fpcr0hqz2robmqhsknxy'" [zoom]="[9]" [center]="[-74.50, 40]">
+  <mgl-map (load)="mapLoaded($event)" [style]="'mapbox://styles/nicolaidavies/cjpy1fpcr0hqz2robmqhsknxy'" [zoom]="[1.8127334287297703]" [center]="[19.926438355044752, 39.031091055988185]">
     <mgl-geojson-source id="symbols-source">
       <mgl-feature *ngIf="featureCollection" [geometry]="featureCollection"></mgl-feature>
     </mgl-geojson-source>

@@ -24,7 +24,6 @@ export class TimezoneComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadCity();
   }
 
   public async loadCity() {
@@ -33,13 +32,8 @@ export class TimezoneComponent implements OnInit {
     this.countryName = city.countryName;
     try {
       const res = await this.locationService.getCoordinates(this.cityName, city.countryCode);
-      console.log('res', res);
       // @ts-ignore
       this.featureCollection = res.features[0].geometry;
-      console.log('this.featureCollection', this.featureCollection);
-      // @ts-ignore
-      window.map = this.map;
-      console.log('this.map', this.map);
 
       this.map.flyTo({
         // @ts-ignore
@@ -47,8 +41,16 @@ export class TimezoneComponent implements OnInit {
         zoom: 9
       });
     } catch (e) {
+      this.loadCity();
       console.log(e);
     }
+  }
+
+  public mapLoaded(map) {
+    this.map = map;
+    // @ts-ignore
+    window.map = map;
+    this.loadCity();
   }
 
   private formatCityName(zoneName: string): string {
